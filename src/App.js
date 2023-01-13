@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useEffect, useState } from "react";
+import Test from "./component/Test";
+
+// stateless, functional component
+
+// useState: state manage
+// useEffect: lifecycle management
+
+// hooks: is a pattern that allow functional component to have state and lifecycle management
 
 function App() {
+  const [isTestVisible, setIsTestVisible] = useState(true);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <div>
+        <button
+          onClick={() => {
+            setIsTestVisible((prev) => !prev);
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Toggle App
+        </button>
+        {isTestVisible ? <Test /> : null}
+        {/* {isTestVisible&&<Test/>} */}
+      </div>
+    </>
   );
 }
 
